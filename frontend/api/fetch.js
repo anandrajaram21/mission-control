@@ -22,7 +22,7 @@ export const post = async (destination, body) => {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
-      "Authorization": headers.Authorization,
+      Authorization: headers.Authorization,
     },
 
     body: body,

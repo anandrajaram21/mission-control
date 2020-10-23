@@ -37,10 +37,8 @@ const FirstScreen = ({ navigation }) => {
       <Text>{"\n"}</Text>
       <Text style={styles.text}>Welcome</Text>
 
-
-      <Button title="Continue" buttonStyle={styles.button} onPress={print}/>
+      <Button title="Continue" buttonStyle={styles.button} onPress={print} />
     </View>
-
   );
 };
 

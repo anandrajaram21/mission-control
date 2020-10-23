@@ -44,7 +44,7 @@ const StudentDash = ({ navigation }) => {
       let response = await get("/api/student/getPoints");
       console.log(response.data);
       setPoints(response.data.points);
-      setMultiplier(response.data.multiplier)
+      setMultiplier(response.data.multiplier);
     }
 
     getPoints();
@@ -103,34 +103,46 @@ const StudentDash = ({ navigation }) => {
       <Text style={{ textAlign: "center", color: "#C0C0C0" }}>
         You currently have {Points} points
       </Text>
-  {!!multiplier && <Text style={{ color: '#C0C0C0',textAlign: "center", }}>Interact everyday to keep your streak and get 2X points</Text>}
-  {!multiplier && <Text style={{ color: '#C0C0C0',textAlign: "center", }}>Start a streak by interacting now!</Text>}
-  {!multiplier && <Text style={{ color: '#9370DB',textAlign: "center", }}> Gain upto 2X points by interacting daily</Text>}
- 
-     <Button
-                icon={
-                  <Icon
-                    reverse
-                    name="shopping-bag"
-                    type="font-awesome"
-                    size={widthPercentageToDP("5%")}
-                    reverseColor="white"
-                    color="black"
-                  />
-                }
-                onPress={goToShop}
-                buttonStyle={{
-                  borderRadius: widthPercentageToDP("5%"),
-                  marginHorizontal: 5,
-                  backgroundColor: "#ffffff00",
-                  alignItems: "center",
-                  fontWeight: "100",
+      {!!multiplier && (
+        <Text style={{ color: "#C0C0C0", textAlign: "center" }}>
+          Interact everyday to keep your streak and get 2X points
+        </Text>
+      )}
+      {!multiplier && (
+        <Text style={{ color: "#C0C0C0", textAlign: "center" }}>
+          Start a streak by interacting now!
+        </Text>
+      )}
+      {!multiplier && (
+        <Text style={{ color: "#9370DB", textAlign: "center" }}>
+          {" "}
+          Gain upto 2X points by interacting daily
+        </Text>
+      )}
 
-                }}
-              />
+      <Button
+        icon={
+          <Icon
+            reverse
+            name="shopping-bag"
+            type="font-awesome"
+            size={widthPercentageToDP("5%")}
+            reverseColor="white"
+            color="black"
+          />
+        }
+        onPress={goToShop}
+        buttonStyle={{
+          borderRadius: widthPercentageToDP("5%"),
+          marginHorizontal: 5,
+          backgroundColor: "#ffffff00",
+          alignItems: "center",
+          fontWeight: "100",
+        }}
+      />
       <SafeAreaView style={styles.container}>
         <FlatList
-        keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.id}
           data={DATA}
           renderItem={({ item }) => (
             <LinearGradient
@@ -151,11 +163,10 @@ const StudentDash = ({ navigation }) => {
                 color="#ffffff66"
                 reverseColor="black"
                 containerStyle={{ position: "absolute", right: 0 }}
-                onPress={() =>{
-                  console.log('OTEM',item)
-                  navigation.navigate("SubmitAssignment", { id: item.id })
-                }
-                }
+                onPress={() => {
+                  console.log("OTEM", item);
+                  navigation.navigate("SubmitAssignment", { id: item.id });
+                }}
               />
               <Text style={styles.duedate}>{item.duedate}</Text>
               {/* </TouchableOpacity> */}

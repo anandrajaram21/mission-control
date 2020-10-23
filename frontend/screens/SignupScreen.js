@@ -5,7 +5,7 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  Alert
+  Alert,
 } from "react-native";
 import { Button } from "react-native-elements";
 import SwitchSelector from "react-native-switch-selector";
@@ -17,10 +17,7 @@ import { post } from "../api/fetch";
 import CustomInput from "../shared/CustomInput";
 import { Formik, Field } from "formik";
 import * as yup from "yup";
-const SignupForm = ({
-  children,
-  navigation,
-}) => {
+const SignupForm = ({ children, navigation }) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [type, onChangeType] = useState("T");
   const signUpValidationSchema = yup.object().shape({
@@ -63,13 +60,9 @@ const SignupForm = ({
   });
 
   return (
-    
     <ScrollView contentContainerStyle={styles.container}>
-      
       <Formik
-      
         validationSchema={signUpValidationSchema}
-        
         initialValues={{
           name: "",
           email: "",
@@ -82,50 +75,48 @@ const SignupForm = ({
         }}
         onSubmit={(values) => {
           values.role = type === "S" ? "student" : "teacher";
-          values.grade =parseInt(values.grade)
-          values.phoneNumber=parseInt(values.phoneNumber)
-          console.log(values)
+          values.grade = parseInt(values.grade);
+          values.phoneNumber = parseInt(values.phoneNumber);
+          console.log(values);
           var params = {
-
-            name:values.name,
+            name: values.name,
             username: values.email,
             password: values.password,
             phoneNumbervalues: parseInt(values.phoneNumber),
             grade: parseInt(values.grade),
-            section:values.section,
-            role:values.role
-
+            section: values.section,
+            role: values.role,
           };
           var formBody = [];
           for (var property in params) {
-            if (typeof(params[property])=='int'){
+            if (typeof params[property] == "int") {
               var encodedValue = parseInt(encodeURIComponent(params[property]));
-            }
-            else{
+            } else {
               var encodedValue = encodeURIComponent(params[property]);
             }
             var encodedKey = encodeURIComponent(property);
             formBody.push(encodedKey + "=" + encodedValue);
           }
           formBody = formBody.join("&");
-          console.log(formBody)
-          post("/register", formBody)
-          .then(async (res) => {
+          console.log(formBody);
+          post("/register", formBody).then(async (res) => {
             console.log(res);
-            if(res.status ==200){
+            if (res.status == 200) {
               Alert.alert("Success!", "Created your account successfully", [
-                { text: "Okay",onPress:()=>{ navigation.navigate('LoginScreen')} },
+                {
+                  text: "Okay",
+                  onPress: () => {
+                    navigation.navigate("LoginScreen");
+                  },
+                },
               ]);
-              
-            }
-            else{
+            } else {
               setErrorMessage("Something went wrong.");
             }
-          })
+          });
         }}
       >
         {({ handleSubmit, isValid }) => (
-          
           <>
             <Field
               component={CustomInput}
@@ -214,22 +205,25 @@ const SignupForm = ({
                   Sign Up
                 </Text>
               </TouchableOpacity> */}
-              <Button title="Sign Up" disabled={!isValid}
+              <Button
+                title="Sign Up"
+                disabled={!isValid}
                 onPress={handleSubmit}
                 buttonStyle={{
                   backgroundColor: "#9370DB",
                   height: widthPercentageToDP("10%"),
                   borderRadius: widthPercentageToDP("5%"),
                   width: widthPercentageToDP("90%"),
-                  alignItems:'center',
-                  textAlign:'center '
-                }}/>
+                  alignItems: "center",
+                  textAlign: "center ",
+                }}
+              />
             </View>
           </>
         )}
       </Formik>
       <Text>{"\n"}</Text>
-      {!!errorMessage && <Text style={{ color: 'red' }}>{errorMessage}</Text>}
+      {!!errorMessage && <Text style={{ color: "red" }}>{errorMessage}</Text>}
       <Text>{"\n"}</Text>
       {children}
     </ScrollView>
@@ -242,7 +236,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     // justifyContent: "center",
     backgroundColor: "#f2f2f2",
-    position:'relative'
+    position: "relative",
   },
   input: {
     paddingLeft: 10,
@@ -259,12 +253,11 @@ const styles = StyleSheet.create({
   },
 });
 const SignupScreen = ({ navigation }) => {
-  
   return (
     <SignupForm buttonText="Sign Up" navigation={navigation}>
       <Text
-        style={{ color: "blue", marginBottom: widthPercentageToDP('10%') }}
-        onPress={() => navigation.navigate('LoginScreen')}
+        style={{ color: "blue", marginBottom: widthPercentageToDP("10%") }}
+        onPress={() => navigation.navigate("LoginScreen")}
       >
         Already have an account?
       </Text>

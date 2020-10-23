@@ -14,6 +14,17 @@ const AssignmentDetails = ({ navigation }) => {
   const studentData = navigation.getParam("student_based_data");
   const assignmentID = navigation.getParam("id");
 
+  for (var j in studentData.submittedStudents) {
+    var date = new Date(studentData.submittedStudents[j].time * 1000);
+    var formattedTime =
+      date.getDate() +
+      "-" +
+      (Number(date.getMonth()) + 1).toString() +
+      "-" +
+      date.getFullYear();
+    studentData.submittedStudents[j].formattedDate = formattedTime;
+  }
+
   console.log(assignmentID);
 
   console.log(studentData);
@@ -43,7 +54,7 @@ const AssignmentDetails = ({ navigation }) => {
             <Card.Divider />
             <Text style={{ fontSize: 14 }}>
               <Text style={{ fontWeight: "bold" }}>Submission Time</Text>:{"\n"}
-              {item.time} {"\n"}
+              {item.formattedDate} {"\n"}
             </Text>
             <Text style={{ fontSize: 14 }}>
               <Text style={{ fontWeight: "bold" }}>Assignment Link</Text>:{"\n"}

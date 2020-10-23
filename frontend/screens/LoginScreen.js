@@ -20,16 +20,13 @@ const LoginScreen = ({ navigation }) => {
     if (token != "undefined") {
       // means that it succeeded
       console.log(token);
-      if(decoded ['role']==='student'){
-      navigation.navigate("StudentDash",{data:token});
+      if (decoded["role"] === "student") {
+        navigation.navigate("StudentDash", { data: token });
+      } else {
+        navigation.navigate("Home", { data: token });
       }
-      else{
-        navigation.navigate("Home",{data:token})
-      }
-
-    }
-    else{
-      errorMessage='Something went wrong.'
+    } else {
+      errorMessage = "Something went wrong.";
     }
   };
   const [errorMessage, setErrorMessage] = useState("");
@@ -68,7 +65,7 @@ const LoginScreen = ({ navigation }) => {
                 goToDash();
               } else {
                 //means it failed
-                console.log(res.status )
+                console.log(res.status);
                 setErrorMessage("Something went wrong.");
               }
             })
@@ -146,13 +143,25 @@ const LoginScreen = ({ navigation }) => {
                 LOGIN
               </Text>
             </TouchableOpacity> */}
-            <Button title="LOGIN"  onPress={handleSubmit}
-              disabled={!isValid}  buttonStyle={{ backgroundColor:"#9370DB",textAlign:"center",borderRadius:widthPercentageToDP('15%')}}/>
-            
-            <Text>{'\n'}</Text>
-            <Text>{'\n'}</Text>
-            <Text>{'\n'}</Text>
-            {!!errorMessage && <Text style={{ color: 'red',textAlign:'center' }}>{errorMessage}</Text>}
+            <Button
+              title="LOGIN"
+              onPress={handleSubmit}
+              disabled={!isValid}
+              buttonStyle={{
+                backgroundColor: "#9370DB",
+                textAlign: "center",
+                borderRadius: widthPercentageToDP("15%"),
+              }}
+            />
+
+            <Text>{"\n"}</Text>
+            <Text>{"\n"}</Text>
+            <Text>{"\n"}</Text>
+            {!!errorMessage && (
+              <Text style={{ color: "red", textAlign: "center" }}>
+                {errorMessage}
+              </Text>
+            )}
           </>
         )}
       </Formik>
