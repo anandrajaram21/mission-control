@@ -1,0 +1,38 @@
+{
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "eject": "expo eject"
+  },
+  "dependencies": {
+    "@react-native-community/async-storage": "^1.12.1",
+    "@react-native-community/masked-view": "0.1.10",
+    "axios": "^0.20.0",
+    "expo": "~39.0.2",
+    "expo-status-bar": "~1.0.2",
+    "formik": "^2.2.0",
+    "jwt-decode": "^3.0.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.3.tar.gz",
+    "react-native-calendars": "^1.403.0",
+    "react-native-elements": "^3.0.0-alpha.1",
+    "react-native-gesture-handler": "~1.7.0",
+    "react-native-reanimated": "~1.13.0",
+    "react-native-responsive-screen": "^1.4.1",
+    "react-native-safe-area-context": "3.1.4",
+    "react-native-screens": "~2.10.1",
+    "react-native-switch-selector": "^2.0.6",
+    "react-native-web": "~0.13.12",
+    "react-navigation": "^4.4.2",
+    "react-navigation-stack": "^2.8.4",
+    "yup": "^0.29.3"
+  },
+  "devDependencies": {
+    "@babel/core": "~7.9.0"
+  },
+  "private": true
+}

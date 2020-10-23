@@ -1,0 +1,36 @@
+openapi: 3.0.0
+info:
+  title: SimpleAPI
+  version: '1.0'
+  description: Our Proprietary SimpleAPI Technology
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /api/interaction/getStudents:
+    get:
+      summary: Get Students of Class
+      tags:
+        - interaction
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  'object ':
+                    type: array
+                    items:
+                      type: object
+              examples:
+                example-1:
+                  value:
+                    'object ':
+                      - {}
+      operationId: get-api-interaction-getStudents
+      description: To get all the students of a class that a teacher handles. The AuthToken must be sent
+components:
+  schemas: {}
+  securitySchemes: {}
+security: []
