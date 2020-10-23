@@ -4,5 +4,5 @@ Mission Control is an app that aims to revive the classroom during the time of o
 
 The Tech Stack chosen for this project was the MERN stack, that consists of MongoDB, Express, React Native, and Node.js
 
-The backend architecture was built and deployed by (Sumuk Shashidhar)[https://github.com/sumukshashidhar/]
-The frontend was built by (Anand Rajaram)[https://github.com/anandrajaram21/] and (Anirudh Lakhotia)[https://github.com/anirudhlakhotia]
+The backend architecture was built and deployed by [Sumuk Shashidhar](https://github.com/sumukshashidhar/)
+The frontend was built by [Anand Rajaram](https://github.com/anandrajaram21/) and [Anirudh Lakhotia](https://github.com/anirudhlakhotia)
