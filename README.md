@@ -8,9 +8,9 @@ This repository is only a consolidation of the contents of the frontend and back
 
 Backend - https://github.com/sumukshashidhar/missioncontrol-backend
 - Main Contributor:
-- [Sumuk Shashidhar](https://github.com/sumukshashidhar/)
+  - [Sumuk Shashidhar](https://github.com/sumukshashidhar/)
 
 Frontend - https://github.com/anirudhlakhotia/mission-control
 - Main Contributors:
-- [Anand Rajaram](https://github.com/anandrajaram21/)
-- [Anirudh Lakhotia](https://github.com/anirudhlakhotia/)
+  - [Anand Rajaram](https://github.com/anandrajaram21/)
+  - [Anirudh Lakhotia](https://github.com/anirudhlakhotia/)
